@@ -57,6 +57,10 @@
     "pageWidth": {
       "type": "string",
       "required": true
+    },
+    "sold": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

@@ -882,6 +882,7 @@ export interface ApiContactContact extends Schema.SingleType {
     description: Attribute.RichText;
     seoMeta: Attribute.Component<'seo.seo-meta'>;
     pageWidth: Attribute.String & Attribute.Required;
+    contactWhatsapp: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -994,6 +995,7 @@ export interface ApiPostPost extends Schema.CollectionType {
     introText: Attribute.RichText;
     description: Attribute.RichText;
     pageWidth: Attribute.String & Attribute.Required;
+    sold: Attribute.Boolean & Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
