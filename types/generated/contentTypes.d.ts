@@ -806,7 +806,6 @@ export interface ApiAboutAbout extends Schema.SingleType {
     introText: Attribute.RichText;
     description: Attribute.RichText;
     seoMeta: Attribute.Component<'seo.seo-meta'>;
-    pageWidth: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -881,7 +880,6 @@ export interface ApiContactContact extends Schema.SingleType {
     introText: Attribute.RichText & Attribute.Required;
     description: Attribute.RichText;
     seoMeta: Attribute.Component<'seo.seo-meta'>;
-    pageWidth: Attribute.String & Attribute.Required;
     contactWhatsapp: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -923,7 +921,6 @@ export interface ApiExhibitionExhibition extends Schema.SingleType {
       'api::post.post'
     >;
     seoMeta: Attribute.Component<'seo.seo-meta'>;
-    pageWidth: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -959,7 +956,6 @@ export interface ApiHomeHome extends Schema.SingleType {
     posts: Attribute.Relation<'api::home.home', 'oneToMany', 'api::post.post'>;
     introText: Attribute.RichText & Attribute.Required;
     seoMeta: Attribute.Component<'seo.seo-meta'>;
-    pageWidth: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -994,8 +990,8 @@ export interface ApiPostPost extends Schema.CollectionType {
     seoMeta: Attribute.Component<'seo.seo-meta'>;
     introText: Attribute.RichText;
     description: Attribute.RichText;
-    pageWidth: Attribute.String & Attribute.Required;
     sold: Attribute.Boolean & Attribute.DefaultTo<false>;
+    dimensions: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

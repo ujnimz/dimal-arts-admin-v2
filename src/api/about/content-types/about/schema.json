@@ -40,10 +40,6 @@
       "type": "component",
       "repeatable": false,
       "component": "seo.seo-meta"
-    },
-    "pageWidth": {
-      "type": "string",
-      "required": true
     }
   }
 }

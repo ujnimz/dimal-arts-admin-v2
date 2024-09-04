@@ -49,10 +49,6 @@
       "repeatable": false,
       "component": "seo.seo-meta"
     },
-    "pageWidth": {
-      "type": "string",
-      "required": true
-    },
     "contactWhatsapp": {
       "type": "string",
       "required": true

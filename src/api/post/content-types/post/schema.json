@@ -54,13 +54,12 @@
     "description": {
       "type": "richtext"
     },
-    "pageWidth": {
-      "type": "string",
-      "required": true
-    },
     "sold": {
       "type": "boolean",
       "default": false
+    },
+    "dimensions": {
+      "type": "string"
     }
   }
 }
