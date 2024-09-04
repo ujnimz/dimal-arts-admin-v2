@@ -60,6 +60,9 @@
     },
     "dimensions": {
       "type": "string"
+    },
+    "materials": {
+      "type": "string"
     }
   }
 }

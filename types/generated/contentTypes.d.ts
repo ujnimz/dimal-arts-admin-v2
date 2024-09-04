@@ -992,6 +992,7 @@ export interface ApiPostPost extends Schema.CollectionType {
     description: Attribute.RichText;
     sold: Attribute.Boolean & Attribute.DefaultTo<false>;
     dimensions: Attribute.String;
+    materials: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
