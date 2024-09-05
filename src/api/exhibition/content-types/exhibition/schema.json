@@ -24,10 +24,10 @@
     "introText": {
       "type": "richtext"
     },
-    "posts": {
+    "post_exhibitions": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::post.post"
+      "target": "api::post-exhibition.post-exhibition"
     },
     "seoMeta": {
       "type": "component",

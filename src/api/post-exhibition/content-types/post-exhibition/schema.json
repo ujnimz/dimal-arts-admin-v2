@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "posts",
+  "collectionName": "post_exhibitions",
   "info": {
-    "singularName": "post",
-    "pluralName": "posts",
-    "displayName": "Post - Works",
+    "singularName": "post-exhibition",
+    "pluralName": "post-exhibitions",
+    "displayName": "Post - Exhibitions",
     "description": ""
   },
   "options": {
@@ -18,21 +18,18 @@
     },
     "slug": {
       "type": "uid",
-      "required": true,
-      "targetField": "title"
-    },
-    "categories": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::category.category",
-      "inversedBy": "posts"
+      "targetField": "title",
+      "required": true
     },
     "images": {
       "type": "media",
       "multiple": true,
       "required": false,
       "allowedTypes": [
-        "images"
+        "images",
+        "files",
+        "videos",
+        "audios"
       ]
     },
     "thumbnail": {
@@ -45,7 +42,7 @@
     },
     "seoMeta": {
       "type": "component",
-      "repeatable": false,
+      "repeatable": true,
       "component": "seo.seo-meta"
     },
     "introText": {
@@ -54,14 +51,10 @@
     "description": {
       "type": "richtext"
     },
-    "sold": {
-      "type": "boolean",
-      "default": false
-    },
-    "dimensions": {
+    "date": {
       "type": "string"
     },
-    "materials": {
+    "venue": {
       "type": "string"
     }
   }
