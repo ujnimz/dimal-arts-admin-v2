@@ -899,6 +899,45 @@ export interface ApiContactContact extends Schema.SingleType {
   };
 }
 
+export interface ApiExhibitExhibit extends Schema.CollectionType {
+  collectionName: 'exhibits';
+  info: {
+    singularName: 'exhibit';
+    pluralName: 'exhibits';
+    displayName: 'Exhibit';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    slug: Attribute.UID<'api::exhibit.exhibit', 'title'> & Attribute.Required;
+    images: Attribute.Media<'images', true>;
+    thumbnail: Attribute.Media<'images'> & Attribute.Required;
+    seoMeta: Attribute.Component<'seo.seo-meta', true>;
+    introText: Attribute.RichText;
+    description: Attribute.RichText;
+    date: Attribute.String;
+    venue: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::exhibit.exhibit',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::exhibit.exhibit',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiExhibitionExhibition extends Schema.SingleType {
   collectionName: 'exhibitions';
   info: {
@@ -915,11 +954,6 @@ export interface ApiExhibitionExhibition extends Schema.SingleType {
     slug: Attribute.UID<'api::exhibition.exhibition', 'title'> &
       Attribute.Required;
     introText: Attribute.RichText;
-    post_exhibitions: Attribute.Relation<
-      'api::exhibition.exhibition',
-      'oneToMany',
-      'api::post-exhibition.post-exhibition'
-    >;
     seoMeta: Attribute.Component<'seo.seo-meta'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -971,7 +1005,7 @@ export interface ApiPostPost extends Schema.CollectionType {
   info: {
     singularName: 'post';
     pluralName: 'posts';
-    displayName: 'Post - Works';
+    displayName: 'Post';
     description: '';
   };
   options: {
@@ -999,46 +1033,6 @@ export interface ApiPostPost extends Schema.CollectionType {
     createdBy: Attribute.Relation<'api::post.post', 'oneToOne', 'admin::user'> &
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::post.post', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
-export interface ApiPostExhibitionPostExhibition extends Schema.CollectionType {
-  collectionName: 'post_exhibitions';
-  info: {
-    singularName: 'post-exhibition';
-    pluralName: 'post-exhibitions';
-    displayName: 'Post - Exhibitions';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    title: Attribute.String & Attribute.Required;
-    slug: Attribute.UID<'api::post-exhibition.post-exhibition', 'title'> &
-      Attribute.Required;
-    images: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
-    thumbnail: Attribute.Media<'images'> & Attribute.Required;
-    seoMeta: Attribute.Component<'seo.seo-meta', true>;
-    introText: Attribute.RichText;
-    description: Attribute.RichText;
-    date: Attribute.String;
-    venue: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::post-exhibition.post-exhibition',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::post-exhibition.post-exhibition',
-      'oneToOne',
-      'admin::user'
-    > &
       Attribute.Private;
   };
 }
@@ -1129,10 +1123,10 @@ declare module '@strapi/types' {
       'api::about.about': ApiAboutAbout;
       'api::category.category': ApiCategoryCategory;
       'api::contact.contact': ApiContactContact;
+      'api::exhibit.exhibit': ApiExhibitExhibit;
       'api::exhibition.exhibition': ApiExhibitionExhibition;
       'api::home.home': ApiHomeHome;
       'api::post.post': ApiPostPost;
-      'api::post-exhibition.post-exhibition': ApiPostExhibitionPostExhibition;
       'api::setting.setting': ApiSettingSetting;
       'api::work.work': ApiWorkWork;
     }

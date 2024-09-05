@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "post_exhibitions",
+  "collectionName": "exhibits",
   "info": {
-    "singularName": "post-exhibition",
-    "pluralName": "post-exhibitions",
-    "displayName": "Post - Exhibitions",
+    "singularName": "exhibit",
+    "pluralName": "exhibits",
+    "displayName": "Exhibit",
     "description": ""
   },
   "options": {
@@ -26,10 +26,7 @@
       "multiple": true,
       "required": false,
       "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
+        "images"
       ]
     },
     "thumbnail": {

@@ -24,11 +24,6 @@
     "introText": {
       "type": "richtext"
     },
-    "post_exhibitions": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::post-exhibition.post-exhibition"
-    },
     "seoMeta": {
       "type": "component",
       "repeatable": false,
